@@ -15,6 +15,20 @@
 />
 
 <style>
+/* Height of the fixed header */
+:root {
+  --header-height: 56px;
+}
+
+/* Apply offset to all sections with IDs that are linked by navigation */
+section[id] {
+  scroll-margin-top: var(--header-height);
+  /* For compatibility in older browsers */
+  padding-top: var(--header-height);
+  margin-top: calc(-1 * var(--header-height));
+}
+
+  
 /* Reset & base */
 * {
   box-sizing: border-box;
