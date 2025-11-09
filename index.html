@@ -15,8 +15,7 @@
 />
 
 <style>
-  
-/* Reset & base */
+ /* Reset & base */
 * {
   box-sizing: border-box;
 }
@@ -25,7 +24,7 @@ body {
   font-family: 'Inter', sans-serif;
   background: #000;
   color: #eee;
-  line-height: 1.5;
+  line-height: 1.6;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -46,13 +45,13 @@ h1, h2, h3 {
 }
 h1 {
   font-weight: 700;
-  font-size: 3.4rem;
-  margin: 0 0 0.5rem 0; /* Reduced bottom margin */
+  font-size: 3.8rem;
+  margin: 0;
   text-shadow: 0 0 8px #0ff8;
 }
 h2 {
   font-weight: 700;
-  font-size: 2.2rem;
+  font-size: 2.4rem;
   margin-bottom: 0.5rem;
   position: relative;
 }
@@ -63,10 +62,10 @@ h3 {
 
 /* Container for page content */
 .container {
-  max-width: 1100px;
-  width: 90%;
+  /* INCREASE max-width, REDUCE side padding for desktop */
+  max-width: 1300px;
+  padding: 0 2.5rem;
   margin: 0 auto;
-  padding: 0 1rem;
   flex-grow: 1;
 }
 
@@ -76,28 +75,22 @@ header {
   top: 0;
   background: #000;
   z-index: 1000;
-  padding: 0.5rem 1.5rem; /* Reduced padding */
+  padding: 1.2rem 1.5rem;
   box-shadow: 0 4px 12px rgba(0 255 255 / 0.1);
-  margin-bottom: 0; /* No margin below header */
 }
-
-/* Desktop nav */
 nav {
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  gap: 2.5rem;
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
-  font-size: 1rem;
-  flex-wrap: wrap;
+  font-size: 1.1rem;
 }
 nav a {
   color: #0ff;
   transition: color 0.3s ease;
   padding: 4px 0;
   position: relative;
-  min-width: 50px;
-  text-align: center;
 }
 nav a:hover,
 nav a:focus {
@@ -120,45 +113,15 @@ nav a:focus::after {
   width: 100%;
 }
 
-/* Dropdown nav for mobile */
-#nav-dropdown {
-  display: none;
-  width: 100%;
-  max-width: 320px;
-  margin: 0.5rem auto; /* space below header */
-  background: #000;
-  color: #0ff;
-  border: 2px solid #0ff;
-  border-radius: 8px;
-  padding: 0.5rem 10px;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  font-size: 1rem;
-  cursor: pointer;
-  appearance: none;
-  -webkit-appearance: none; /* remove default arrow for WebKit */
-  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='7'%3E%3Cpath fill='%2300ffff' d='M0 0l5 7 5-7z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 10px center;
-  background-size: 10px 7px;
-  box-shadow: 0 0 12px #00e6ffaa;
-}
-
-/* Hide dropdown arrow on some browsers */
-#nav-dropdown::-ms-expand {
-  display: none;
-}
-
 /* Header Landing Section */
 #landing {
-  height: 70vh; /* reduced height from 85vh */
+  height: 90vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 2rem 1rem 1rem;
-  margin-top: 0; /* Remove extra top margin */
+  padding: 0 1rem;
 }
 #landing h1 {
   animation: fadeInUp 0.8s ease forwards;
@@ -166,8 +129,8 @@ nav a:focus::after {
 #landing .location,
 #landing .objective {
   color: #0ffccf;
-  font-size: 1.1rem;
-  margin-top: 0.4rem;
+  font-size: 1.15rem;
+  margin-top: 0.5rem;
   max-width: 500px;
   opacity: 0;
   animation: fadeInUp 0.8s ease forwards;
@@ -176,7 +139,7 @@ nav a:focus::after {
 }
 #landing .objective {
   font-style: italic;
-  margin-top: 0.8rem;
+  margin-top: 1rem;
   font-weight: 500;
 }
 
@@ -205,15 +168,11 @@ nav a:focus::after {
   }
 }
 
-/* Sections fade-in and spacing */
+/* Sections fade-in */
 section {
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 0.8s ease forwards;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  margin-top: 0;
-  margin-bottom: 0;
 }
 section:nth-of-type(1) { animation-delay: 0.1s; }
 section:nth-of-type(2) { animation-delay: 0.3s; }
@@ -221,44 +180,280 @@ section:nth-of-type(3) { animation-delay: 0.5s; }
 section:nth-of-type(4) { animation-delay: 0.7s; }
 section:nth-of-type(5) { animation-delay: 0.9s; }
 
-/* Reduce spacing inside About Me */
+/* About Me */
 #about-me {
-  padding: 2rem 0 2rem 0;
+  padding: 3rem 0;
   position: relative;
   overflow: hidden;
 }
 #about-me p {
   max-width: 900px;
-  margin: 0.7rem auto 0;
-  font-size: 1.05rem;
+  margin: 1rem auto 0;
+  font-size: 1.1rem;
   color: #0ffccf;
 }
 
-/* ... The rest of your styles remain unchanged ... */
+/* Projects */
+#projects {
+  padding: 3rem 0;
+}
+.project-card {
+  background: #050f10;
+  border-radius: 8px;
+  padding: 1.6rem 2rem;
+  margin-bottom: 1.8rem;
+  box-shadow: 0 0 12px #0ff4;
+  transition: box-shadow 0.3s ease;
+  position: relative;
+}
+.project-card:focus-within,
+.project-card:hover {
+  box-shadow: 0 0 20px #0ff8;
+}
+.project-card h3 {
+  margin-top: 0;
+  color: #0ff;
+  text-shadow: 0 0 6px #0ff8;
+}
+.tech-stack {
+  font-style: italic;
+  color: #55ffff;
+  margin-bottom: 0.6rem;
+  font-size: 0.95rem;
+}
+.project-actions {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.btn-read-more,
+.btn-repo {
+  background: transparent;
+  border: 2px solid #0ff;
+  color: #0ff;
+  padding: 6px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.btn-read-more:hover,
+.btn-read-more:focus,
+.btn-repo:hover,
+.btn-repo:focus {
+  background-color: #0ff;
+  color: #000;
+  outline: none;
+  transform: scale(1.05);
+}
+.project-details {
+  margin-top: 1rem;
+  display: none;
+  color: #99ffff;
+  font-size: 1rem;
+}
+.project-details.show {
+  display: block;
+  animation: fadeSlideDown 0.4s ease forwards;
+}
+@keyframes fadeSlideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-/* Responsive styles for mobile */
+/* Skills */
+#skills {
+  padding: 3rem 0;
+}
+.skills-group {
+  margin-bottom: 2rem;
+}
+.skills-group h3 {
+  color: #0ff;
+  text-shadow: 0 0 6px #0ff8;
+  margin-bottom: 0.75rem;
+}
+.skills-list {
+  list-style: none;
+  padding-left: 0;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+}
+.skills-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.1rem;
+  color: #0ffccf;
+  font-weight: 600;
+}
+.skills-list li i {
+  font-size: 1.6rem;
+  color: #00e6ff;
+  text-shadow: 0 0 6px #00e6ffaa;
+  min-width: 24px;
+}
+
+/* Certifications */
+#certifications {
+  padding: 3rem 0;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.cert-list {
+  list-style: none;
+  padding-left: 0;
+}
+.cert-item {
+  background: #050f10;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  box-shadow: 0 0 12px #0ff4;
+  transition: box-shadow 0.3s ease;
+  position: relative;
+  color: #0ffccf;
+}
+.cert-item:hover,
+.cert-item:focus {
+  box-shadow: 0 0 20px #0ff8;
+  outline: none;
+}
+.cert-name {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-weight: 600;
+}
+.cert-name i {
+  color: #0ff;
+  text-shadow: 0 0 6px #0ff8;
+}
+
+/* Weave Certificate details */
+.weave-details {
+  color: #55ffff;
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  display: none;
+}
+
+.weave-details .btn-view-cert {
+  margin-top: 0.8rem;
+  background: transparent;
+  border: 2px solid #0ff;
+  color: #0ff;
+  padding: 6px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  display: block;
+  width: max-content;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+.weave-details .btn-view-cert:hover,
+.weave-details .btn-view-cert:focus {
+  background-color: #0ff;
+  color: #000;
+  outline: none;
+  transform: scale(1.05);
+}
+
+/* Contact Section */
+#contact {
+  padding: 3rem 0 5rem;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+#contact h2 {
+  margin-bottom: 1.5rem;
+  color: #0ff;
+  text-shadow: 0 0 6px #0ff8;
+}
+.contact-icons {
+  display: flex;
+  justify-content: center;
+  gap: 2.2rem;
+}
+.contact-icons a {
+  color: #0ff;
+  font-size: 3rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background: #050f10;
+  box-shadow: 0 0 12px #00e6ffaa;
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+  text-decoration: none;
+}
+.contact-icons a:hover,
+.contact-icons a:focus {
+  box-shadow: 0 0 25px #0ff, 0 0 50px #0ffccf;
+  background-color: #00e6ff;
+  color: #000;
+  outline: none;
+}
+
+/* Wide desktop: use almost all space */
+@media (min-width: 1400px) {
+  .container {
+    max-width: 95vw; /* fill most of the screen */
+    padding-left: 4vw;
+    padding-right: 4vw;
+  }
+  #about-me p,
+  .skills-list {
+    max-width: 1200px;
+  }
+  #certifications,
+  #contact {
+    max-width: 1200px;
+  }
+}
+
+/* Medium screens: more readable width */
+@media (max-width: 1100px) {
+  .container {
+    max-width: 98vw;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  #about-me p, .skills-list, #certifications, #contact { max-width: 95vw; }
+}
+
+/* Responsive for mobile/small screens */
 @media (max-width: 600px) {
   h1 {
-    font-size: 2.2rem;
+    font-size: 2.8rem;
   }
-  h2 {
-    font-size: 1.6rem;
-  }
-  h3 {
-    font-size: 1.1rem;
-  }
-  .subtitle {
+  nav {
+    gap: 1.2rem;
     font-size: 1rem;
   }
-
-  /* Hide desktop nav and show dropdown on mobile */
-  nav {
-    display: none;
-  }
-  #nav-dropdown {
-    display: block;
-  }
-
   .container {
     max-width: 100vw;
     padding-left: 0.7rem;
@@ -266,36 +461,23 @@ section:nth-of-type(5) { animation-delay: 0.9s; }
   }
   .skills-list {
     justify-content: center;
-    gap: 0.9rem 1rem;
+    gap: 1rem 1rem;
   }
   .contact-icons a {
-    width: 50px;
-    height: 50px;
-    font-size: 2.2rem;
-  }
-  .btn-resume {
-    width: 100%;
-    max-width: 320px;
-    justify-content: center;
-    padding: 12px 0;
+    width: 55px;
+    height: 55px;
+    font-size: 2.4rem;
   }
 }
 
-/* Remove excess padding on ultra-narrow */
+/* Remove excess on ultra-narrow */
 @media (max-width: 400px) {
   .container {
     padding-left: 0.25rem;
     padding-right: 0.25rem;
   }
-  .contact-icons a {
-    width: 45px;
-    height: 45px;
-    font-size: 2rem;
-  }
 }
 
-
-/* Subtitle style */
 .subtitle {
   font-size: 1.38rem;
   font-weight: 500;
@@ -305,12 +487,11 @@ section:nth-of-type(5) { animation-delay: 0.9s; }
   font-family: 'Poppins', sans-serif;
 }
 
-/* Resume button style */
 .btn-resume {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  margin-top: 1rem;
+  margin-top: 1.1rem;
   padding: 10px 24px;
   font-size: 1.08rem;
   font-family: 'Poppins', sans-serif;
@@ -337,7 +518,6 @@ section:nth-of-type(5) { animation-delay: 0.9s; }
   outline: none;
 }
 
-/* Glow underline animation */
 .glow-underline {
   display: block;
   width: 56%;
@@ -352,12 +532,12 @@ section:nth-of-type(5) { animation-delay: 0.9s; }
   from { box-shadow: 0 0 8px #0ff7; }
   to { box-shadow: 0 0 18px #0ffccf; }
 }
+
 </style>
 </head>
 <body>
 
 <header role="banner" aria-label="Primary Navigation">
-  <!-- Desktop nav -->
   <nav aria-label="Primary Navigation">
     <a href="#about-me" tabindex="0">About Me</a>
     <a href="#projects" tabindex="0">Projects</a>
@@ -365,22 +545,12 @@ section:nth-of-type(5) { animation-delay: 0.9s; }
     <a href="#certifications" tabindex="0">Certifications</a>
     <a href="#contact" tabindex="0">Contact</a>
   </nav>
-
-  <!-- Mobile dropdown nav -->
-  <select id="nav-dropdown" aria-label="Primary Navigation">
-    <option value="">Navigate to...</option>
-    <option value="#about-me">About Me</option>
-    <option value="#projects">Projects</option>
-    <option value="#skills">Skills</option>
-    <option value="#certifications">Certifications</option>
-    <option value="#contact">Contact</option>
-  </select>
 </header>
 
 <main class="container" role="main">
 
   <section id="landing" aria-label="Landing Section">
-
+  
   <h1>
     Noorussaba M Pakali
     <span class="glow-underline"></span>
@@ -401,8 +571,8 @@ section:nth-of-type(5) { animation-delay: 0.9s; }
   </div>
 </section>
 
-<!-- The rest of your sections unchanged -->
- <section id="about-me" aria-label="About Me Section" >
+
+  <section id="about-me" aria-label="About Me Section" >
     <h2>About Me</h2>
     <p>
       Bachelor of Engineering – CSE (AI & ML) | KLS's VDIT, Haliyal | 2022 – Present | CGPA: 9.10<br />
@@ -412,7 +582,7 @@ section:nth-of-type(5) { animation-delay: 0.9s; }
     </p>
   </section>
 
-<section id="projects" aria-label="Projects Section" >
+  <section id="projects" aria-label="Projects Section" >
     <h2>Projects</h2>
 
     <article class="project-card" tabindex="0" aria-expanded="false">
@@ -587,6 +757,8 @@ section:nth-of-type(5) { animation-delay: 0.9s; }
   </ul>
 </section>
 
+
+
   <section id="contact" aria-label="Contact Section" >
     <h2>Contact</h2>
     <div class="contact-icons">
@@ -595,7 +767,6 @@ section:nth-of-type(5) { animation-delay: 0.9s; }
       <a href="https://github.com/noorussabampakali" target="_blank" rel="noopener" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
     </div>
   </section>
-
 
 </main>
 
@@ -641,16 +812,6 @@ section:nth-of-type(5) { animation-delay: 0.9s; }
         item.click();
       }
     });
-  });
-
-  // Navigation dropdown handler for mobile
-  const navDropdown = document.getElementById('nav-dropdown');
-  navDropdown.addEventListener('change', () => {
-    const val = navDropdown.value;
-    if (val) {
-      location.hash = val;
-      navDropdown.value = ""; // reset dropdown
-    }
   });
 </script>
 
