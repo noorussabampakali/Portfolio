@@ -15,6 +15,28 @@
 />
 
 <style>
+ #landing {
+  margin-bottom: 0; /* No gap below landing */
+  padding-bottom: 1rem; /* smaller padding if needed */
+}
+
+section:first-of-type {
+  margin-top: 0; /* remove gap above first content section */
+  padding-top: 1rem; /* smaller padding */
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px); /* reduce vertical shift */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+  
 /* Reset & base */
 * {
   box-sizing: border-box;
