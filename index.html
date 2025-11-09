@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Noorussaba M Pakali | Portfolio</title>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter&family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
+
+<!-- Font Awesome free CDN for icons -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+/>
+
+<style>
+ /* Reset & base */
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: #000;
+  color: #eee;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:focus,
+button:focus {
+  outline: 2px solid #0ff;
+  outline-offset: 2px;
+}
+
+/* Fonts */
+h1, h2, h3 {
+  font-family: 'Poppins', sans-serif;
+}
+h1 {
+  font-weight: 700;
+  font-size: 3.8rem;
+  margin: 0;
+  text-shadow: 0 0 8px #0ff8;
+}
+h2 {
+  font-weight: 700;
+  font-size: 2.4rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+h3 {
+  font-weight: 600;
+  margin-top: 0;
+}
+
+/* Container for page content */
+.container {
+  /* INCREASE max-width, REDUCE side padding for desktop */
+  max-width: 1300px;
+  padding: 0 2.5rem;
+  margin: 0 auto;
+  flex-grow: 1;
+}
+
+/* Navbar */
+header {
+  position: sticky;
+  top: 0;
+  background: #000;
+  z-index: 1000;
+  padding: 1.2rem 1.5rem;
+  box-shadow: 0 4px 12px rgba(0 255 255 / 0.1);
+}
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+nav a {
+  color: #0ff;
+  transition: color 0.3s ease;
+  padding: 4px 0;
+  position: relative;
+}
+nav a:hover,
+nav a:focus {
+  color: #0ff;
+  text-shadow: 0 0 8px #0ff;
+}
+nav a::after {
+  content: '';
+  display: block;
+  height: 2px;
+  width: 0;
+  background: #0ff;
+  transition: width 0.3s ease;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+nav a:hover::after,
+nav a:focus::after {
+  width: 100%;
+}
+
+/* Header Landing Section */
+#landing {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 1rem;
+}
+#landing h1 {
+  animation: fadeInUp 0.8s ease forwards;
+}
+#landing .location,
+#landing .objective {
+  color: #0ffccf;
+  font-size: 1.15rem;
+  margin-top: 0.5rem;
+  max-width: 500px;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+  animation-delay: 0.3s;
+  animation-fill-mode: forwards;
+}
+#landing .objective {
+  font-style: italic;
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
+/* Location icon glow */
+#landing .location i {
+  margin-right: 0.5rem;
+  color: #0ffccf;
+  animation: pulseGlow 2.5s infinite;
+}
+@keyframes pulseGlow {
+  0%, 100% {
+    text-shadow: 0 0 6px #0ffccf;
+  }
+  50% {
+    text-shadow: 0 0 15px #0ffccf;
+  }
+}
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+/* Sections fade-in */
+section {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+section:nth-of-type(1) { animation-delay: 0.1s; }
+section:nth-of-type(2) { animation-delay: 0.3s; }
+section:nth-of-type(3) { animation-delay: 0.5s; }
+section:nth-of-type(4) { animation-delay: 0.7s; }
+section:nth-of-type(5) { animation-delay: 0.9s; }
+
+/* About Me */
+#about-me {
+  padding: 3rem 0;
+  position: relative;
+  overflow: hidden;
+}
+#about-me p {
+  max-width: 900px;
+  margin: 1rem auto 0;
+  font-size: 1.1rem;
+  color: #0ffccf;
+}
+
+/* Projects */
+#projects {
+  padding: 3rem 0;
+}
+.project-card {
+  background: #050f10;
+  border-radius: 8px;
+  padding: 1.6rem 2rem;
+  margin-bottom: 1.8rem;
+  box-shadow: 0 0 12px #0ff4;
+  transition: box-shadow 0.3s ease;
+  position: relative;
+}
+.project-card:focus-within,
+.project-card:hover {
+  box-shadow: 0 0 20px #0ff8;
+}
+.project-card h3 {
+  margin-top: 0;
+  color: #0ff;
+  text-shadow: 0 0 6px #0ff8;
+}
+.tech-stack {
+  font-style: italic;
+  color: #55ffff;
+  margin-bottom: 0.6rem;
+  font-size: 0.95rem;
+}
+.project-actions {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.btn-read-more,
+.btn-repo {
+  background: transparent;
+  border: 2px solid #0ff;
+  color: #0ff;
+  padding: 6px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.btn-read-more:hover,
+.btn-read-more:focus,
+.btn-repo:hover,
+.btn-repo:focus {
+  background-color: #0ff;
+  color: #000;
+  outline: none;
+  transform: scale(1.05);
+}
+.project-details {
+  margin-top: 1rem;
+  display: none;
+  color: #99ffff;
+  font-size: 1rem;
+}
+.project-details.show {
+  display: block;
+  animation: fadeSlideDown 0.4s ease forwards;
+}
+@keyframes fadeSlideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Skills */
+#skills {
+  padding: 3rem 0;
+}
+.skills-group {
+  margin-bottom: 2rem;
+}
+.skills-group h3 {
+  color: #0ff;
+  text-shadow: 0 0 6px #0ff8;
+  margin-bottom: 0.75rem;
+}
+.skills-list {
+  list-style: none;
+  padding-left: 0;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+}
+.skills-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.1rem;
+  color: #0ffccf;
+  font-weight: 600;
+}
+.skills-list li i {
+  font-size: 1.6rem;
+  color: #00e6ff;
+  text-shadow: 0 0 6px #00e6ffaa;
+  min-width: 24px;
+}
+
+/* Certifications */
+#certifications {
+  padding: 3rem 0;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.cert-list {
+  list-style: none;
+  padding-left: 0;
+}
+.cert-item {
+  background: #050f10;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  box-shadow: 0 0 12px #0ff4;
+  transition: box-shadow 0.3s ease;
+  position: relative;
+  color: #0ffccf;
+}
+.cert-item:hover,
+.cert-item:focus {
+  box-shadow: 0 0 20px #0ff8;
+  outline: none;
+}
+.cert-name {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-weight: 600;
+}
+.cert-name i {
+  color: #0ff;
+  text-shadow: 0 0 6px #0ff8;
+}
+
+/* Weave Certificate details */
+.weave-details {
+  color: #55ffff;
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  display: none;
+}
+
+.weave-details .btn-view-cert {
+  margin-top: 0.8rem;
+  background: transparent;
+  border: 2px solid #0ff;
+  color: #0ff;
+  padding: 6px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  display: block;
+  width: max-content;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+.weave-details .btn-view-cert:hover,
+.weave-details .btn-view-cert:focus {
+  background-color: #0ff;
+  color: #000;
+  outline: none;
+  transform: scale(1.05);
+}
+
+/* Contact Section */
+#contact {
+  padding: 3rem 0 5rem;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+#contact h2 {
+  margin-bottom: 1.5rem;
+  color: #0ff;
+  text-shadow: 0 0 6px #0ff8;
+}
+.contact-icons {
+  display: flex;
+  justify-content: center;
+  gap: 2.2rem;
+}
+.contact-icons a {
+  color: #0ff;
+  font-size: 3rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background: #050f10;
+  box-shadow: 0 0 12px #00e6ffaa;
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+  text-decoration: none;
+}
+.contact-icons a:hover,
+.contact-icons a:focus {
+  box-shadow: 0 0 25px #0ff, 0 0 50px #0ffccf;
+  background-color: #00e6ff;
+  color: #000;
+  outline: none;
+}
+
+/* Wide desktop: use almost all space */
+@media (min-width: 1400px) {
+  .container {
+    max-width: 95vw; /* fill most of the screen */
+    padding-left: 4vw;
+    padding-right: 4vw;
+  }
+  #about-me p,
+  .skills-list {
+    max-width: 1200px;
+  }
+  #certifications,
+  #contact {
+    max-width: 1200px;
+  }
+}
+
+/* Medium screens: more readable width */
+@media (max-width: 1100px) {
+  .container {
+    max-width: 98vw;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  #about-me p, .skills-list, #certifications, #contact { max-width: 95vw; }
+}
+
+/* Responsive for mobile/small screens */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2.8rem;
+  }
+  nav {
+    gap: 1.2rem;
+    font-size: 1rem;
+  }
+  .container {
+    max-width: 100vw;
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+  }
+  .skills-list {
+    justify-content: center;
+    gap: 1rem 1rem;
+  }
+  .contact-icons a {
+    width: 55px;
+    height: 55px;
+    font-size: 2.4rem;
+  }
+}
+
+/* Remove excess on ultra-narrow */
+@media (max-width: 400px) {
+  .container {
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+  }
+}
+
+.subtitle {
+  font-size: 1.38rem;
+  font-weight: 500;
+  color: #0ffccf;
+  margin-top: 0.8rem;
+  letter-spacing: 0.2px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.btn-resume {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1.1rem;
+  padding: 10px 24px;
+  font-size: 1.08rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: #0ff;
+  background: #050f10;
+  border: 2.5px solid #0ff;
+  border-radius: 8px;
+  text-shadow: 0 0 7px #0ff7;
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s, transform 0.25s;
+  box-shadow: 0 0 15px #0ff2;
+  cursor: pointer;
+  text-decoration: none;
+}
+.btn-resume i {
+  font-size: 1.18rem;
+}
+.btn-resume:hover,
+.btn-resume:focus {
+  background: #0ff;
+  color: #000;
+  box-shadow: 0 0 26px #0ff;
+  transform: scale(1.045);
+  outline: none;
+}
+
+.glow-underline {
+  display: block;
+  width: 56%;
+  height: 4px;
+  margin: 0.38rem auto 0;
+  background: linear-gradient(90deg, #0ff 30%, #55ffff 70%);
+  border-radius: 2px;
+  box-shadow: 0 0 12px #0ff7;
+  animation: underlineGlow 1.8s infinite alternate;
+}
+@keyframes underlineGlow {
+  from { box-shadow: 0 0 8px #0ff7; }
+  to { box-shadow: 0 0 18px #0ffccf; }
+}
+
+</style>
+</head>
+<body>
+
+<header role="banner" aria-label="Primary Navigation">
+  <nav aria-label="Primary Navigation">
+    <a href="#about-me" tabindex="0">About Me</a>
+    <a href="#projects" tabindex="0">Projects</a>
+    <a href="#skills" tabindex="0">Skills</a>
+    <a href="#certifications" tabindex="0">Certifications</a>
+    <a href="#contact" tabindex="0">Contact</a>
+  </nav>
+</header>
+
+<main class="container" role="main">
+
+  <section id="landing" aria-label="Landing Section">
+  
+  <h1>
+    Noorussaba M Pakali
+    <span class="glow-underline"></span>
+  </h1>
+  <!-- Subtitle/tagline -->
+  <div class="subtitle">Aspiring Software Engineer & AI/ML Enthusiast</div>
+
+  <!-- Download Resume button -->
+  <a href="https://drive.google.com/file/d/1L61j-U59cg4B2rtbr_ySeofCSyekWa9g/view?usp=drivesdk" class="btn-resume" download>
+    <i class="fas fa-file-download"></i> View Resume
+  </a>
+
+  <div class="location" aria-label="Location">
+    <i class="fas fa-map-marker-alt" aria-hidden="true"></i> Dharwad, Karnataka, India.
+  </div>
+  <div class="objective" aria-label="Career Objective">
+    Dedicated Computer Science student with strong fundamentals in programming, data structures, and software development. Skilled in Python, SQL, and web technologies...
+  </div>
+</section>
+
+
+  <section id="about-me" aria-label="About Me Section" >
+    <h2>About Me</h2>
+    <p>
+      Bachelor of Engineering – CSE (AI & ML) | KLS's VDIT, Haliyal | 2022 – Present | CGPA: 9.10<br />
+      Previous Education Highlights:<br />
+      PUC: 88.6% | SSLC: 92.5%<br /><br />
+      I am a dedicated Computer Science student with strong fundamentals in programming, data structures, and software development. I have hands-on experience with Python, SQL, and web technologies, and enjoy solving problems efficiently. My goal is to contribute effectively to software development and system engineering projects in a collaborative environment.
+    </p>
+  </section>
+
+  <section id="projects" aria-label="Projects Section" >
+    <h2>Projects</h2>
+
+    <article class="project-card" tabindex="0" aria-expanded="false">
+  <h3>Appointment Booking System – Code Battle 2025</h3>
+  <div class="tech-stack">Tech Stack: MySQL, HTML, CSS, JavaScript, and Twilio for message integration</div>
+  <p>Real-time full-stack platform with SMS notifications, backend logic, and clean UI/UX.</p>
+  <div class="project-actions">
+    <button class="btn-read-more" aria-expanded="false" aria-label="Toggle detailed description for Appointment Booking System">Read More</button>
+    <a href="https://github.com/noorussabampakali/appointment-booking-system.git" target="_blank" rel="noopener" class="btn-repo" aria-label="GitHub Repository for Appointment Booking System">
+      <i class="fab fa-github" aria-hidden="true"></i> Repository
+    </a>
+  </div>
+  <div class="project-details" aria-hidden="true">
+    <p>This system streamlines appointment management with real-time queue optimization, SMS notifications, and a user-friendly interface, built for a hackathon.</p>
+    <p>The project involved three user roles: admin, doctor, and patient. Admin manages the system; doctors can register themselves and their patients. Our technology stack included MySQL, HTML, CSS, JavaScript, and Twilio for message integration.</p>
+    <p>Although we were not able to fully complete the SMS integration with Twilio, one of our teammates worked extensively on it, and by using the login database, we could partially log users in. The system was hosted on a local server during development.</p>
+    <p>As team leader, I carefully managed the project and took responsibility primarily for the frontend UI/UX and backend database schema design, while my teammates handled other integration tasks. We collaborated closely to deliver a functional and appreciated solution.</p>
+  </div>
+</article>
+
+<article class="project-card" tabindex="0" aria-expanded="false">
+  <h3>Student Performance Dashboard – Power BI</h3>
+  <div class="tech-stack">Tech Stack: Power BI, Data Visualization, Excel, Data Cleaning, Dashboard Design, Excel.</div>
+  <p>Custom dashboard analyzing student metrics and trends with dynamic filtering options.</p>
+  <div class="project-actions">
+    <button class="btn-read-more" aria-expanded="false" aria-label="Toggle detailed description for Student Performance Dashboard">Read More</button>
+    <a href="https://github.com/noorussabampakali/Student_Performance_Analysis_Academic_and_Psychological_Factors_PowerBI.git" target="_blank" rel="noopener" class="btn-repo" aria-label="GitHub Repository for Student Performance Dashboard">
+      <i class="fab fa-github" aria-hidden="true"></i> Repository
+    </a>
+  </div>
+  <div class="project-details" aria-hidden="true">
+  <p>This dashboard offers real-time insights into student performance, helping educators identify trends and areas for improvement through interactive visuals and filtering. We developed this as a mini project in the 5th semester of our course.</p>
+  <p>We considered both academic and psychological factors to provide more comprehensive solutions. Data was sourced from various sites like Kaggle and educational institutions, then cleaned thoroughly to ensure accuracy.</p>
+  <p>Our team of four created individual dashboards, exchanging ideas to improve collaboration and overall quality.</p>
+  <p>Technically, the project involves Power BI visualizations, Excel data processing, and a dedicated dashboard for data cleaning.</p>
+  <p>My role focused on data cleaning and preparation, and I also created one comprehensive dashboard that integrated all the insights from the team.</div>
+
+</article>
+
+
+  <section id="skills" aria-label="Skills Section" >
+  <h2>Skills</h2>
+
+  <div class="skills-group">
+    <h3>Programming Languages & Core Concepts</h3>
+    <ul class="skills-list">
+      <li><i class="fab fa-python" aria-hidden="true"></i> Python</li>
+      <li><i class="fab fa-java" aria-hidden="true"></i> Java (Basics)</li>
+      <li><i class="fab fa-js" aria-hidden="true"></i> JavaScript (Basics)</li>
+      <li><i class="fab fa-php" aria-hidden="true"></i> PHP</li>
+      <li><i class="fas fa-code" aria-hidden="true"></i> Object-Oriented Programming (OOP)</li>
+      <li><i class="fas fa-database" aria-hidden="true"></i> Data Structures</li>
+      <li><i class="fas fa-tasks" aria-hidden="true"></i> Agile Basics</li>
+    </ul>
+  </div>
+
+  <div class="skills-group">
+    <h3>Web Development</h3>
+    <ul class="skills-list">
+      <li><i class="fab fa-html5" aria-hidden="true"></i> HTML</li>
+      <li><i class="fab fa-css3-alt" aria-hidden="true"></i> CSS</li>
+      <li><i class="fab fa-react" aria-hidden="true"></i> React</li>
+      <li><i class="fab fa-node-js" aria-hidden="true"></i> Node.js (Basics)</li>
+      <!-- <li><i class="fab fa-bootstrap" aria-hidden="true"></i> Bootstrap</li> -->
+    </ul>
+  </div>
+
+  <div class="skills-group">
+    <h3>Data & Analytics</h3>
+    <ul class="skills-list">
+      <li><i class="fas fa-chart-bar" aria-hidden="true"></i> Power BI</li>
+      <li><i class="fas fa-chart-pie" aria-hidden="true"></i> Tableau (Basics)</li>
+      <li><i class="fas fa-database" aria-hidden="true"></i> MySQL</li>
+      <li><i class="fas fa-file-excel" aria-hidden="true"></i> Excel (Data Cleaning & Analysis)</li>
+      <li><i class="fas fa-broom" aria-hidden="true"></i> Data Cleaning</li>
+      <li><i class="fas fa-search" aria-hidden="true"></i> Data Analysis</li>
+    </ul>
+  </div>
+
+  <div class="skills-group">
+    <h3>Tools & Technologies</h3>
+    <ul class="skills-list">
+      <li><i class="fab fa-github" aria-hidden="true"></i> GitHub</li>
+      <li><i class="fas fa-code" aria-hidden="true"></i> VS Code</li>
+      <li><i class="fas fa-laptop-code" aria-hidden="true"></i> Code Blocks</li>
+    </ul>
+  </div>
+
+  <div class="skills-group">
+    <h3>Design & Prototyping</h3>
+    <ul class="skills-list">
+      <li><i class="fas fa-pencil-ruler" aria-hidden="true"></i> Figma</li>
+      <li><i class="fas fa-object-ungroup" aria-hidden="true"></i> Google Stitch</li>
+      <li><i class="fas fa-desktop" aria-hidden="true"></i> Dashboard Design</li>
+      <li><i class="fas fa-lightbulb" aria-hidden="true"></i> UI/UX Principles</li>
+    </ul>
+  </div>
+
+  <div class="skills-group">
+    <h3>Soft Skills</h3>
+    <ul class="skills-list">
+      <li><i class="fas fa-brain" aria-hidden="true"></i> Analytical Thinking</li>
+      <li><i class="fas fa-lightbulb" aria-hidden="true"></i> Problem-Solving</li>
+      <li><i class="fas fa-comments" aria-hidden="true"></i> Communication</li>
+      <li><i class="fas fa-users" aria-hidden="true"></i> Team Collaboration</li>
+    </ul>
+  </div>
+</section>
+
+
+  <section id="certifications" aria-label="Certifications Section" >
+  <h2>Certifications</h2>
+  <ul class="cert-list">
+
+    <li class="cert-item" tabindex="0" aria-expanded="false" aria-controls="cert-powerbi" aria-haspopup="true" aria-label="Power BI Projects certification details toggle">
+      <div class="cert-name">
+        <i class="fas fa-certificate" aria-hidden="true"></i> Power BI Projects – Infosys Springboard
+      </div>
+      <div id="cert-powerbi" class="weave-details" aria-hidden="true">
+        Completed advanced Power BI projects covering data visualization and dashboard creation.
+        <a href="https://drive.google.com/file/d/1KR_5M5H7ImNiZhEciUgp3yruAoK9al-b/view?usp=drivesdk" target="_blank" rel="noopener" class="btn-view-cert">View Certificate</a>
+      </div>
+    </li>
+
+    <li class="cert-item" tabindex="0" aria-expanded="false" aria-controls="cert-aifundamentals" aria-haspopup="true" aria-label="Artificial Intelligence Fundamentals certificate details toggle">
+      <div class="cert-name">
+        <i class="fas fa-certificate" aria-hidden="true"></i> Artificial Intelligence Fundamentals – IBM SkillsBuild  (2025 Oct)
+      </div>
+      <div id="cert-aifundamentals" class="weave-details" aria-hidden="true">
+        Completed a 10+ hour course covering core AI concepts such as machine learning, natural language processing, neural networks, and ethical AI applications. Provided hands-on experience with IBM Watson Studio and an understanding of AI job outlooks.
+        <a href="https://drive.google.com/file/d/1OJS3MeQ-AMazf_pv89lVPHpsR-Z0qZR8/view?usp=drivesdk" target="_blank" rel="noopener" class="btn-view-cert">View Certificate</a>
+      </div>
+    </li>
+
+    <li class="cert-item" tabindex="0" aria-expanded="false" aria-controls="cert-customerengagement" aria-haspopup="true" aria-label="Customer Engagement course with sub-certificates toggle">
+  <div class="cert-name">
+    <i class="fas fa-certificate" aria-hidden="true"></i> Customer Engagement Representative – IBM SkillsBuild (2025 Oct)
+  </div>
+  <div id="cert-customerengagement" class="weave-details" aria-hidden="true">
+    Completed comprehensive customer engagement training with two sub-certificates:
+    <ul>
+      <li><strong>Communication and Personality Dynamics:</strong> A ~5-hour course covering effective communication, rapport building, and understanding personality types.</li>
+      <li><strong>Problem Solving and Process Controls:</strong> A ~5-hour course teaching customer issue resolution, process management, and service efficiency.</li>
+    </ul>
+    <div style="display: flex; gap: 12px; margin-top: 8px;">
+      <a href="https://drive.google.com/file/d/1WAQA4Z1mfWTB4Ew-VXJhgZAvHyLQmhHk/view?usp=drivesdk" target="_blank" rel="noopener" class="btn-view-cert">View Certificates-1</a>
+      <a href="https://drive.google.com/file/d/1CoDCFgIOGEJV36mJm5-VlXh3W3pBWX9h/view?usp=drivesdk" target="_blank" rel="noopener" class="btn-view-cert">View Certificates-2</a>
+    </div>
+  </div>
+</li>
+
+    <li class="cert-item" tabindex="0" aria-expanded="false" aria-controls="cert-uiux" aria-haspopup="true" aria-label="UI/UX Developer certification details toggle">
+      <div class="cert-name">
+        <i class="fas fa-certificate" aria-hidden="true"></i> UI/UX Developer – Infosys & ICT Academy (2025 Aug-Sep)
+      </div>
+      <div id="cert-uiux" class="weave-details" aria-hidden="true">
+        Completed professional training in UI/UX design and development, mastering essentials of user-centered design and prototyping.
+        <a href="https://drive.google.com/file/d/1oZahrr2cf1QjsClmAUDGQXxaUoi5qjgF/view?usp=drivesdk" target="_blank" rel="noopener" class="btn-view-cert">View Certificate</a>
+      </div>
+    </li>
+
+    <li class="cert-item" tabindex="0" aria-expanded="false" aria-controls="cert-aiml" aria-haspopup="true" aria-label="AI-ML Virtual Internship certificate details toggle">
+      <div class="cert-name">
+        <i class="fas fa-certificate" aria-hidden="true"></i> AI-ML Virtual Internship – EduSkills & AICTE, supported by Google for Developers (July–Sept 2025, 10 weeks)
+      </div>
+      <div id="cert-aiml" class="weave-details" aria-hidden="true">
+        Successfully completed a 10-week internship focusing on AI and Machine Learning concepts, supported by Google for Developers.
+        <a href="https://drive.google.com/file/d/1fijVQCWe-iJ-nQY_zqJXAij1cogORDEr/view?usp=drivesdk" target="_blank" rel="noopener" class="btn-view-cert">View Certificate</a>
+      </div>
+    </li>
+
+  </ul>
+</section>
+
+
+
+  <section id="contact" aria-label="Contact Section" >
+    <h2>Contact</h2>
+    <div class="contact-icons">
+      <a href="mailto:noorussabampakali@gmail.com" aria-label="Email Noorussaba"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.linkedin.com/in/noorussaba-pakali-481b89331?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/noorussabampakali" target="_blank" rel="noopener" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
+    </div>
+  </section>
+
+</main>
+
+<script>
+  // Toggle read more for projects
+  document.querySelectorAll('.btn-read-more').forEach(button => {
+    button.addEventListener('click', () => {
+      const projectCard = button.closest('.project-card');
+      const details = projectCard.querySelector('.project-details');
+      const expanded = button.getAttribute('aria-expanded') === 'true';
+      if (expanded) {
+        details.classList.remove('show');
+        button.setAttribute('aria-expanded', 'false');
+        projectCard.setAttribute('aria-expanded', 'false');
+      } else {
+        details.classList.add('show');
+        button.setAttribute('aria-expanded', 'true');
+        projectCard.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  // Toggle certifications details
+  const certItems = document.querySelectorAll('.cert-item');
+  certItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const details = item.querySelector('.weave-details');
+      const expanded = item.getAttribute('aria-expanded') === 'true';
+      if (!details) return;
+      if (expanded) {
+        details.style.display = 'none';
+        item.setAttribute('aria-expanded', 'false');
+        details.setAttribute('aria-hidden', 'true');
+      } else {
+        details.style.display = 'block';
+        item.setAttribute('aria-expanded', 'true');
+        details.setAttribute('aria-hidden', 'false');
+      }
+    });
+    item.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        item.click();
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
