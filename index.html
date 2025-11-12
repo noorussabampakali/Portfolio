@@ -70,153 +70,60 @@ h3 {
   flex-grow: 1;
 }
 
-/* Navbar */
-header {
-  position: sticky;
-  top: 0;
-  background: #000;
-  z-index: 1000;
-  padding: 1.2rem 1.5rem;
-  box-shadow: 0 4px 12px rgba(0 255 255 / 0.1);
-}
-nav {
-  display: flex;
-  justify-content: center;
-  gap: 2.5rem;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  font-size: 1.1rem;
-}
-nav a {
-  color: #0ff;
-  transition: color 0.3s ease;
-  padding: 4px 0;
-  position: relative;
-}
-nav a:hover,
-nav a:focus {
-  color: #0ff;
-  text-shadow: 0 0 8px #0ff;
-}
-nav a::after {
-  content: '';
-  display: block;
-  height: 2px;
-  width: 0;
-  background: #0ff;
-  transition: width 0.3s ease;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-}
-nav a:hover::after,
-nav a:focus::after {
-  width: 100%;
-}
 
 /* Header Landing Section */
-/* ✨ Dynamic Landing Section */
 #landing {
-  min-height: 100dvh; /* full visible height with mobile-safe unit */
+  height: 50dvh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 0 1.5rem;
-  margin-bottom: 2rem;
-  background: radial-gradient(circle at center, #0a0a0a 0%, #000 100%);
-  overflow: hidden;
-  position: relative;
+  padding: 0 1rem;
+  margin-bottom: 2rem; /* Reduced spacing */
 }
-
-/* Add a soft floating glow behind the content */
-#landing::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 180%;
-  height: 180%;
-  background: radial-gradient(circle, rgba(0, 255, 255, 0.08) 0%, transparent 70%);
-  transform: translate(-50%, -50%) scale(1);
-  animation: pulseGlow 6s ease-in-out infinite;
-  z-index: 0;
-}
-
-/* Bring text above the background glow */
-#landing * {
-  position: relative;
-  z-index: 1;
-}
-
-/* Animated title */
 #landing h1 {
-  font-size: clamp(2rem, 5vw, 3rem);
-  color: #fff;
-  letter-spacing: 1px;
-  margin-bottom: 0.5rem;
-  animation: fadeInUp 1s ease forwards, titlePop 3s ease-in-out infinite alternate;
+  animation: fadeInUp 0.8s ease forwards;
 }
-
-/* Location + objective text */
 #landing .location,
 #landing .objective {
   color: #0ffccf;
-  font-size: clamp(1rem, 2.5vw, 1.2rem);
-  margin-top: 0.8rem;
-  max-width: 500px;
+  font-size: 1.15rem;
+  margin-top: 0.5rem;
+  max-width: 700px;
   opacity: 0;
-  transform: translateY(10px);
   animation: fadeInUp 0.8s ease forwards;
-  animation-delay: 0.4s;
+  animation-delay: 0.3s;
+  animation-fill-mode: forwards;
+}
+#landing .objective {
+  font-style: italic;
+  margin-top: 1rem;
+  font-weight: 500;
 }
 
-/* --- Animations --- */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
+/* Location icon glow */
+#landing .location i {
+  margin-right: 0.5rem;
+  color: #0ffccf;
+  animation: pulseGlow 2.5s infinite;
+}
+@keyframes pulseGlow {
+  0%, 100% {
+    text-shadow: 0 0 6px #0ffccf;
   }
+  50% {
+    text-shadow: 0 0 15px #0ffccf;
+  }
+}
+@keyframes fadeInUp {
   to {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-@keyframes pulseGlow {
-  0%, 100% {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 0.5;
-  }
-  50% {
-    transform: translate(-50%, -50%) scale(1.1);
-    opacity: 0.8;
-  }
-}
-
-@keyframes titlePop {
-  0% {
-    text-shadow: 0 0 10px #0ffccf, 0 0 20px #0ffccf, 0 0 40px transparent;
-  }
-  100% {
-    text-shadow: 0 0 15px #0ffccf, 0 0 30px #00f0ff, 0 0 50px #0ffccf;
-  }
-}
-
-/* --- Responsiveness --- */
-@media (max-width: 768px) {
-  #landing {
-    padding: 0 1rem;
-  }
-
-  #landing h1 {
-    font-size: 2rem;
-  }
-
-  #landing .location,
-  #landing .objective {
-    font-size: 1rem;
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
 }
 
@@ -348,13 +255,15 @@ section:nth-of-type(5) { animation-delay: 0.9s; }
   flex-wrap: wrap;
   gap: 0.8rem 1.5rem;
 }
+
 .skills-list li {
   display: flex;
-  align-items: center;
+  align-items: left;
   gap: 0.4rem;
   font-size: 1.1rem;
   color: #0ffccf;
   font-weight: 600;
+  text-align: left;
 }
 .skills-list li i {
   font-size: 1.5rem;
@@ -486,6 +395,7 @@ section:nth-of-type(5) { animation-delay: 0.9s; }
   #about-me p,
   .skills-list {
     max-width: 1200px;
+
   }
   #certifications,
   #contact {
@@ -595,7 +505,7 @@ section:nth-of-type(5) { animation-delay: 0.9s; }
 /* Basic header styling — keep your existing styles as is */
 header {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   padding: 13px 20px;
   background: #000;
@@ -611,12 +521,15 @@ header {
   background: #fff;
   border: none;
   cursor: pointer;
+  margin-left: auto;
+
 }
 
 /* Navigation styling */
 .nav-links {
   display: flex;
   gap: 25px;
+
 }
 
 .nav-links a {
@@ -627,7 +540,7 @@ header {
 }
 
 /* RESPONSIVE — show hamburger on small screens */
-@media (max-width: 768px) {
+@media {
   .hamburger {
     display: block;
   }
@@ -637,17 +550,19 @@ header {
     flex-direction: column;
     position: absolute;
     top: 65px;
-    right: auto;
-    Left: 25px;
+    right: 25px;
+    Left: auto;
     background: #000;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.15);
     padding: 15px 20px;
+
   }
 
   .nav-links.active {
     display: flex;
     animation: fadeIn 0.3s ease-in-out;
+
   }
 
   @keyframes fadeIn {
@@ -663,17 +578,15 @@ header {
   opacity: 0.8;
 }
 
-
 </style>
 </head>
 <body>
 
 <header>
-  <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+  <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" >
     ☰
   </button>
   <nav class="nav-links">
-    <a href="#landing">Home</a>
     <a href="#about-me" tabindex="0">About Me</a>
     <a href="#projects" tabindex="0">Projects</a>
     <a href="#skills" tabindex="0">Skills</a>
@@ -905,8 +818,6 @@ header {
 
   </ul>
 </section>
-
-
 
   <section id="contact" aria-label="Contact Section" >
     <h2>Contact</h2>
