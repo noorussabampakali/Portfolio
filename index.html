@@ -108,6 +108,25 @@ h3 {
   color: #0ffccf;
   animation: pulseGlow 2.5s infinite;
 }
+
+@media (max-width: 600px) {
+#landing {
+height: auto; /* Let content determine height on small screens /
+padding: 2rem 1rem; / Increased side padding for readability /
+}
+#landing h1 {
+font-size: 2.8rem; / Slightly smaller heading on phones /
+}
+#landing .location,
+#landing .objective {
+font-size: 1.05rem; / Slightly smaller but readable /
+max-width: 92%; / Prevent line-wrapping issues on narrow screens */
+}
+#landing .objective {
+font-style: italic;
+}
+}
+
 @keyframes pulseGlow {
   0%, 100% {
     text-shadow: 0 0 6px #0ffccf;
@@ -898,7 +917,9 @@ document.addEventListener('click', (e) => {
     hamburger.textContent = '☰';
     hamburger.setAttribute('aria-expanded', false);
   }
-});</script>
+});
+
+</script>
 
 </body>
 </html>
