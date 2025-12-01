@@ -63,7 +63,6 @@ h3 {
 
 /* Container for page content */
 .container {
-  /* INCREASE max-width, REDUCE side padding for desktop */
   max-width: 1300px;
   padding: 0 2.5rem;
   margin: 0 auto;
@@ -80,7 +79,7 @@ h3 {
   align-items: center;
   text-align: center;
   padding: 0 1rem;
-  margin-bottom: 2rem; /* Reduced spacing */
+  margin-bottom: 2rem;
 }
 #landing h1 {
   animation: fadeInUp 0.8s ease forwards;
@@ -110,21 +109,21 @@ h3 {
 }
 
 @media (max-width: 600px) {
-#landing {
-height: auto; /* Let content determine height on small screens /
-padding: 2rem 1rem; / Increased side padding for readability /
-}
-#landing h1 {
-font-size: 2.8rem; / Slightly smaller heading on phones /
-}
-#landing .location,
-#landing .objective {
-font-size: 1.05rem; / Slightly smaller but readable /
-max-width: 92%; / Prevent line-wrapping issues on narrow screens */
-}
-#landing .objective {
-font-style: italic;
-}
+  #landing {
+    height: auto;
+    padding: 2rem 1rem;
+  }
+  #landing h1 {
+    font-size: 2.8rem;
+  }
+  #landing .location,
+  #landing .objective {
+    font-size: 1.05rem;
+    max-width: 92%;
+  }
+  #landing .objective {
+    font-style: italic;
+  }
 }
 
 @keyframes pulseGlow {
@@ -151,7 +150,7 @@ section {
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 0.8s ease forwards;
-  margin-bottom: 2rem; /* Smoother, reduced gap */
+  margin-bottom: 2rem;
 }
 section:nth-of-type(1) { animation-delay: 0.1s; }
 section:nth-of-type(2) { animation-delay: 0.3s; }
@@ -161,7 +160,7 @@ section:nth-of-type(5) { animation-delay: 0.9s; }
 
 /* About Me */
 #about-me {
-  padding: 2rem 0; /* Reduced padding */
+  padding: 2rem 0;
   position: relative;
   overflow: hidden;
 }
@@ -174,12 +173,12 @@ section:nth-of-type(5) { animation-delay: 0.9s; }
 
 /* Projects */
 #projects {
-  padding: 2rem 0; /* Reduced padding */
+  padding: 2rem 0;
 }
 .project-card {
   background: #050f10;
   border-radius: 8px;
-  padding: 1.4rem 2rem; /* Slightly reduced padding */
+  padding: 1.4rem 2rem;
   margin-bottom: 1.6rem;
   box-shadow: 0 0 12px #0ff4;
   transition: box-shadow 0.3s ease;
@@ -255,7 +254,7 @@ section:nth-of-type(5) { animation-delay: 0.9s; }
 
 /* Skills */
 #skills {
-  padding: 2rem 0; /* Reduced padding */
+  padding: 2rem 0;
 }
 .skills-group {
   margin-bottom: 1.5rem;
@@ -298,7 +297,7 @@ section:nth-of-type(5) { animation-delay: 0.9s; }
 
 /* Certifications */
 #certifications {
-  padding: 2rem 0; /* Reduced padding */
+  padding: 2rem 0;
   max-width: 900px;
   margin: 0 auto;
 }
@@ -309,7 +308,7 @@ section:nth-of-type(5) { animation-delay: 0.9s; }
 .cert-item {
   background: #050f10;
   border-radius: 8px;
-  padding: 0.9rem 1.5rem; /* Reduced padding */
+  padding: 0.9rem 1.5rem;
   margin-bottom: 0.9rem;
   cursor: pointer;
   box-shadow: 0 0 12px #0ff4;
@@ -336,7 +335,7 @@ section:nth-of-type(5) { animation-delay: 0.9s; }
 /* Weave Certificate details */
 .weave-details {
   color: #55ffff;
-  margin-top: 0.3rem; /* Reduced margin */
+  margin-top: 0.3rem;
   font-size: 0.95rem;
   display: none;
 }
@@ -367,7 +366,7 @@ section:nth-of-type(5) { animation-delay: 0.9s; }
 
 /* Contact Section */
 #contact {
-  padding: 2rem 0 4rem; /* Smoother padding */
+  padding: 2rem 0 4rem;
   max-width: 900px;
   margin: 0 auto;
   text-align: center;
@@ -407,14 +406,13 @@ section:nth-of-type(5) { animation-delay: 0.9s; }
 /* Wide desktop: use almost all space */
 @media (min-width: 1400px) {
   .container {
-    max-width: 95vw; /* fill most of the screen */
+    max-width: 95vw;
     padding-left: 4vw;
     padding-right: 4vw;
   }
   #about-me p,
   .skills-list {
     max-width: 1200px;
-
   }
   #certifications,
   #contact {
@@ -429,7 +427,9 @@ section:nth-of-type(5) { animation-delay: 0.9s; }
     padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
-  #about-me p, .skills-list, #certifications, #contact { max-width: 95vw; }
+  #about-me p, .skills-list, #certifications, #contact { 
+    max-width: 95vw; 
+  }
 }
 
 /* Responsive for mobile/small screens */
@@ -520,8 +520,7 @@ section:nth-of-type(5) { animation-delay: 0.9s; }
   to { box-shadow: 0 0 18px #0ffccf; }
 }
 
-
-/* Basic header styling — keep your existing styles as is */
+/* Basic header styling */
 header {
   display: flex;
   justify-content: flex-start;
@@ -537,29 +536,27 @@ header {
 .hamburger {
   display: none;
   font-size: 28px;
-  background: #fff;
+  background: transparent;
+  color: #0ff;
   border: none;
   cursor: pointer;
   margin-left: auto;
-
 }
 
 /* Navigation styling */
 .nav-links {
   display: flex;
   gap: 25px;
-
 }
 
 .nav-links a {
   text-decoration: none;
-  color:#00ffff;
+  color: #00ffff;
   font-weight: 500;
-  
 }
 
 /* RESPONSIVE — show hamburger on small screens */
-@media {
+@media (max-width: 768px) {
   .hamburger {
     display: block;
   }
@@ -570,18 +567,16 @@ header {
     position: absolute;
     top: 65px;
     right: 25px;
-    Left: auto;
+    left: auto;
     background: #000;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.15);
     padding: 15px 20px;
-
   }
 
   .nav-links.active {
     display: flex;
     animation: fadeIn 0.3s ease-in-out;
-
   }
 
   @keyframes fadeIn {
@@ -590,10 +585,10 @@ header {
   }
 }
 
-  .section-divider {
+.section-divider {
   border: none;
-  border-top: 1px solid #00ffff; /* neon blue */
-  margin: 40px 0; /* space above and below */
+  border-top: 1px solid #00ffff;
+  margin: 40px 0;
   opacity: 0.8;
 }
 
@@ -602,7 +597,7 @@ header {
 <body>
 
 <header>
-  <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" >
+  <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
     ☰
   </button>
   <nav class="nav-links">
@@ -622,10 +617,8 @@ header {
     Noorussaba M Pakali
     <span class="glow-underline"></span>
   </h1>
-  <!-- Subtitle/tagline -->
   <div class="subtitle">Aspiring Software Engineer & AI/ML Enthusiast</div>
 
-  <!-- Download Resume button -->
   <a href="https://drive.google.com/file/d/1L61j-U59cg4B2rtbr_ySeofCSyekWa9g/view?usp=drivesdk" class="btn-resume" download>
     <i class="fas fa-file-download"></i> View Resume
   </a>
@@ -639,7 +632,7 @@ header {
 </section>
 
 
-  <section id="about-me" aria-label="About Me Section" >
+  <section id="about-me" aria-label="About Me Section">
     <h2>About Me</h2>
     <p>
       Bachelor of Engineering – CSE (AI & ML) | KLS's VDIT, Haliyal | 2022 – Present | CGPA: 9.10<br />
@@ -649,7 +642,7 @@ header {
     </p>
   </section>
 
-  <section id="projects" aria-label="Projects Section" >
+  <section id="projects" aria-label="Projects Section">
     <h2>Projects</h2>
 
     <article class="project-card" tabindex="0" aria-expanded="false">
@@ -685,12 +678,12 @@ header {
   <p>We considered both academic and psychological factors to provide more comprehensive solutions. Data was sourced from various sites like Kaggle and educational institutions, then cleaned thoroughly to ensure accuracy.</p>
   <p>Our team of four created individual dashboards, exchanging ideas to improve collaboration and overall quality.</p>
   <p>Technically, the project involves Power BI visualizations, Excel data processing, and a dedicated dashboard for data cleaning.</p>
-  <p>My role focused on data cleaning and preparation, and I also created one comprehensive dashboard that integrated all the insights from the team.</div>
-
+  <p>My role focused on data cleaning and preparation, and I also created one comprehensive dashboard that integrated all the insights from the team.</p>
+  </div>
 </article>
+  </section>
 
-
-  <section id="skills" aria-label="Skills Section" >
+  <section id="skills" aria-label="Skills Section">
   <h2>Skills</h2>
 
   <div class="skills-group">
@@ -706,8 +699,7 @@ header {
     </ul>
   </div>
 
-   <hr class="section-divider">
-
+  <hr class="section-divider">
 
   <div class="skills-group">
     <h3>Web Development</h3>
@@ -716,12 +708,10 @@ header {
       <li><i class="fab fa-css3-alt" aria-hidden="true"></i> CSS</li>
       <li><i class="fab fa-react" aria-hidden="true"></i> React</li>
       <li><i class="fab fa-node-js" aria-hidden="true"></i> Node.js (Basics)</li>
-      <!-- <li><i class="fab fa-bootstrap" aria-hidden="true"></i> Bootstrap</li> -->
     </ul>
   </div>
 
-    <hr class="section-divider">
-
+  <hr class="section-divider">
     
   <div class="skills-group">
     <h3>Data & Analytics</h3>
@@ -735,8 +725,7 @@ header {
     </ul>
   </div>
 
-    <hr class="section-divider">
-
+  <hr class="section-divider">
 
   <div class="skills-group">
     <h3>Tools & Technologies</h3>
@@ -747,8 +736,7 @@ header {
     </ul>
   </div>
 
-    <hr class="section-divider">
-
+  <hr class="section-divider">
 
   <div class="skills-group">
     <h3>Design & Prototyping</h3>
@@ -760,7 +748,7 @@ header {
     </ul>
   </div>
 
-    <hr class="section-divider">
+  <hr class="section-divider">
     
   <div class="skills-group">
     <h3>Soft Skills</h3>
@@ -773,8 +761,7 @@ header {
   </div>
 </section>
 
-
-  <section id="certifications" aria-label="Certifications Section" >
+  <section id="certifications" aria-label="Certifications Section">
   <h2>Certifications</h2>
   <ul class="cert-list">
 
@@ -838,7 +825,7 @@ header {
   </ul>
 </section>
 
-  <section id="contact" aria-label="Contact Section" >
+  <section id="contact" aria-label="Contact Section">
     <h2>Contact</h2>
     <div class="contact-icons">
       <a href="mailto:noorussabampakali@gmail.com" aria-label="Email Noorussaba"><i class="fas fa-envelope"></i></a>
@@ -897,28 +884,27 @@ header {
     });
   });
 
-const hamburger = document.querySelector('.hamburger');
-const navLinks = document.querySelector('.nav-links');
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
 
-// Toggle menu open/close
-hamburger.addEventListener('click', (e) => {
-  e.stopPropagation(); // Prevent click from bubbling up
-  const isActive = navLinks.classList.toggle('active');
-  hamburger.setAttribute('aria-expanded', isActive);
-  hamburger.textContent = isActive ? '✕' : '☰';
-});
+  // Toggle menu open/close
+  hamburger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isActive = navLinks.classList.toggle('active');
+    hamburger.setAttribute('aria-expanded', isActive);
+    hamburger.textContent = isActive ? '✕' : '☰';
+  });
 
-// Close menu when clicking outside
-document.addEventListener('click', (e) => {
-  if (navLinks.classList.contains('active') && 
-      !navLinks.contains(e.target) && 
-      !hamburger.contains(e.target)) {
-    navLinks.classList.remove('active');
-    hamburger.textContent = '☰';
-    hamburger.setAttribute('aria-expanded', false);
-  }
-});
-
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (navLinks.classList.contains('active') && 
+        !navLinks.contains(e.target) && 
+        !hamburger.contains(e.target)) {
+      navLinks.classList.remove('active');
+      hamburger.textContent = '☰';
+      hamburger.setAttribute('aria-expanded', false);
+    }
+  });
 </script>
 
 </body>
